@@ -1,0 +1,24 @@
+.sectionButton{
+    margin: auto;
+    display: flex;
+    font-size: 40px;
+}
+
+.btnFeedback{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn{
+    background-color:aquamarine;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.section{
+    margin: auto;
+    text-align: center
+}
