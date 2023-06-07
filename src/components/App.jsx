@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import s from './Feedback/App.module.css';
+import PropTypes from 'prop-types'
 
 export const App = () => {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
@@ -60,6 +61,11 @@ const Section = ({ title, children }) => (
   </div>
 );
 
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+}
+
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div className={s.btnFeedback}>
     {options.map(option => (
@@ -69,6 +75,11 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
     ))}
   </div>
 );
+
+FeedbackOptions.propTypes = {
+  option: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+}
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <div>
@@ -80,7 +91,18 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   </div>
 );
 
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+}
+
 const Notification = ({ message }) => <p>{message}</p>
 
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+}
 
 export default App;
